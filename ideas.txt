@@ -1,0 +1,89 @@
+
+WEEK 0: 
+
+Initial brainstorm:
+1. Write fragmented appraoch for developing knits 
+2. Begin with identifying needles that will be used
+3. Write cast-on functions
+4. Is there a library of knit techniques or more just file based?
+5. Think of ways to add in patterns and use numbers and modulo to work
+6. To-Do:
+        - Review Github
+        - Decide ways to code effectively 
+        - Break down shaping methods to operations
+        - Think of ways to use numbers and management effectively
+
+WEEK 1:
+
+Ways to try making pleat/folds along curves
+- knit on front bed until cetain distance to fold, then back bed and float 
+tuck at the valley/river of the fold
+- Use yarns that hold memory well
+
+Technical notes:
+- Begin knitting from RIGHT to LEFT! (same as knitting tutorial cast ons)
+
+- 0, 1, 2, 3, ... width (needle positions)
+
+- RIGHT TO LEFT is negative direction
+- LEFT TO RIGHT is positive direction 
+
+- 0 is FALSE
+- 1 is TRUE when using %
+
+- modulo will be powerful for creating knit patterns 
+
+Questions:
+
+- Max width and height for shima swatches?
+- why does the rib rectangle code cast on like two passes of tucks
+- Confused a bit about 
+    for i in range(width-1, 0, -2):
+    for i in range(0, width, 2):
+    Since start at width - 1 first pass stop before 0
+    Start at 0 stop before width, so do we not cast onto width? does it 
+    
+    This casts onto every needle on one bed then every needle on other bed since always -2
+
+
+- why use python as a lot of the knitout stuff is referencing javascript
+- Half/Full pitch? how is this set
+- Range is starting inclusive, stopping exclusive!
+
+- need to figure out knit module error 
+
+- Is it good practice to knit with even amount of needles using modulo for cast on
+        - knowing that 0, width - 1 are what actually is going to be knit on?
+
+
+- Use modulo for transferring to specific ribbing dimensions (fragmenting knit operations over a range over a domain)
+- set specific remainders to f and others to b or to specific operations 
+
+- is there a way to check what is currently on the bed where
+        - thinking about transferring and unsure if bad to transfer if it is already on the bed
+        - transferring f10 to f10? or can i check what is on a needle?
+
+        - Theoretically, if i have yarn on f10 and write xfer(+ or -, b10, f10) what happens
+
+
+- weft / warp knitting? explain a bit more / folding implications (we use warp in shima!(?))
+- what functions or additionalresources should i look at?
+
+Things I should try next:
+
+- Writing a pleat function that allows you to specify:
+        r -> amount of 1x1 rib for one flat part of fold
+        b -> amount of needles knit on BACK bed (VALLEY)
+        r2 -> amount of 1x1 rib for second flat part of fold
+        f -> amount of needles knit on FRONT bed (MOUNTAIN)
+
+        - split it up using modulo of (r+b+r2+f)
+        - allow to rapidly program 
+
+
+conda install -n knitout-env knitout
+
+A module is essentially a python file
+A package is the directory containing modules
+
+For knitout.py module, I must import knitout
