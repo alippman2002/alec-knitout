@@ -67,6 +67,30 @@ tuck + f56 1
 tuck + f58 1
 tuck + f60 1
 tuck + f62 1
+xfer f62 b62
+xfer f60 b60
+xfer b57 f57
+xfer f54 b54
+xfer f52 b52
+xfer b49 f49
+xfer f46 b46
+xfer f44 b44
+xfer b41 f41
+xfer f38 b38
+xfer f36 b36
+xfer b33 f33
+xfer f30 b30
+xfer f28 b28
+xfer b25 f25
+xfer f22 b22
+xfer f20 b20
+xfer b17 f17
+xfer f14 b14
+xfer f12 b12
+xfer b9 f9
+xfer f6 b6
+xfer f4 b4
+xfer b1 f1
 knit + f0 1
 knit + f1 1
 knit + f2 1

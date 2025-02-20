@@ -136,6 +136,28 @@ tuck + f128 1
 xfer b129 f129
 xfer b127 f127
 xfer b125 f125
+xfer f110 b110
+xfer f108 b108
+xfer b103 f103
+xfer b101 f101
+xfer b99 f99
+xfer f84 b84
+xfer f82 b82
+xfer b77 f77
+xfer b75 f75
+xfer b73 f73
+xfer f58 b58
+xfer f56 b56
+xfer b51 f51
+xfer b49 f49
+xfer b47 f47
+xfer f32 b32
+xfer f30 b30
+xfer b25 f25
+xfer b23 f23
+xfer b21 f21
+xfer f6 b6
+xfer f4 b4
 knit + b0 1
 knit + f1 1
 knit + b2 1

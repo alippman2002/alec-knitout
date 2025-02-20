@@ -32,7 +32,7 @@ for i in range(width - 1, 0, -2):
     # This pass tucks along the back bed 
     k.tuck('-', (bed,i), carrier)
 
-# What is this for?
+
 k.releasehook(carrier)
 
 
@@ -51,11 +51,11 @@ for i in range(width - 1, -1, -1):
             k.xfer(('b',i), ('f',i))
         else:
             # No need to transfer!
-            break
+            continue
     else:
         if i%2:
             # No need to transfer!
-            break
+            continue
         else:
             k.xfer(('f',i), ('b',i))
     

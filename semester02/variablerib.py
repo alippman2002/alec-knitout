@@ -66,14 +66,14 @@ for i in range(r1+b+r2, r1+b+r2+f):
 for i in range(width - 1, -1, -1):
     if i%iteration in r1rem:
         # No transfers needed as cast on sets up 1x1 rib
-        break
+        continue
     if i%iteration in brem:
         # Transfer to b bed if i%2 = 0
         if not i%2:
             k.xfer(('f',i), ('b',i))
     if i%iteration in r2rem:
         # No transfers needed as cast on sets up 1x1 rib
-        break
+        continue
     if i%iteration in frem:
         # Transfer to f if i%2 = 1
         if i%2:
@@ -128,4 +128,4 @@ for i in range(0, width):
     # Since ribbing is on both beds, drop f and b!
     k.drop('f', i)
     k.drop('b', i)
-k.write('alec-variable-rib-test-'+str(r1)+'-'+str(b)+'-'+str(r2)+'-'+str(f)+str(width)+'x'+str(height)+'.k')
+k.write('alec-variable-rib-test-r1-'+str(r1)+'-b-'+str(b)+'-r2-'+str(r2)+'-f-'+str(f)+'-dim:-'+str(width)+'x'+str(height)+'.k')

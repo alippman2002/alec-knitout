@@ -22,22 +22,17 @@ tuck at the valley/river of the fold
 
 Technical notes:
 - Begin knitting from RIGHT to LEFT! (same as knitting tutorial cast ons)
-
 - 0, 1, 2, 3, ... width (needle positions)
-
 - RIGHT TO LEFT is negative direction
 - LEFT TO RIGHT is positive direction 
 
 - 0 is FALSE
 - 1 is TRUE when using %
-
 - modulo will be powerful for creating knit patterns 
 
-Questions:
+- Range is starting inclusive, stopping exclusive!
 
-- Max width and height for shima swatches?
-- why does the rib rectangle code cast on like two passes of tucks
-- Confused a bit about 
+3d knit cast on technique for ribbing
     for i in range(width-1, 0, -2):
     for i in range(0, width, 2):
     Since start at width - 1 first pass stop before 0
@@ -45,45 +40,41 @@ Questions:
     
     This casts onto every needle on one bed then every needle on other bed since always -2
 
-
-- why use python as a lot of the knitout stuff is referencing javascript
-- Half/Full pitch? how is this set
-- Range is starting inclusive, stopping exclusive!
-
-- need to figure out knit module error 
-
-- Is it good practice to knit with even amount of needles using modulo for cast on
-        - knowing that 0, width - 1 are what actually is going to be knit on?
-
+Knit with even amount of needles using modulo for cast on
+        - knowing that 0, width - 1 are what actually is going to be knit on!
 
 - Use modulo for transferring to specific ribbing dimensions (fragmenting knit operations over a range over a domain)
 - set specific remainders to f and others to b or to specific operations 
 
-- is there a way to check what is currently on the bed where
-        - thinking about transferring and unsure if bad to transfer if it is already on the bed
-        - transferring f10 to f10? or can i check what is on a needle?
-
-        - Theoretically, if i have yarn on f10 and write xfer(+ or -, b10, f10) what happens
-
-
-- weft / warp knitting? explain a bit more / folding implications (we use warp in shima!(?))
-- what functions or additionalresources should i look at?
-
-Things I should try next:
-
-- Writing a pleat function that allows you to specify:
-        r -> amount of 1x1 rib for one flat part of fold
-        b -> amount of needles knit on BACK bed (VALLEY)
-        r2 -> amount of 1x1 rib for second flat part of fold
-        f -> amount of needles knit on FRONT bed (MOUNTAIN)
-
-        - split it up using modulo of (r+b+r2+f)
-        - allow to rapidly program 
-
-
 conda install -n knitout-env knitout
 
-A module is essentially a python file
+For knitout.py module, I must import knitout
+add to system path! check code to  add module to system path
+
+A module is a python file
 A package is the directory containing modules
 
-For knitout.py module, I must import knitout
+Questions:
+
+- Max width and height for shima swatches?
+
+- why does the rib rectangle code cast on two passes of tucks (one on F other pass on B)
+
+-How is half/full pitch set
+
+- is there a way to check what is currently on the bed?
+
+ - Theoretically, if i have yarn on f10 and write xfer(+ or -, b10, f10) what happens
+
+# What is this for?
+k.releasehook(carrier)
+
+- What issues do you see in my 3x5 rib and variable rib, and how should I expand upon these ideas for next Thursday?
+
+# TO-DOs For Last Feb Meeting:
+ - Change Meeting 2 to First Week of April (By thursday)
+ - Apply to Research Funding (By thursday)
+ - More Bertoldi Code (By thursday)
+ - Fix presenation (By thursday)
+ - Review paper Kausalya sent for reference, and Anya's lit review
+ - New Lit Review Draft in Overleaf (By thursday)
