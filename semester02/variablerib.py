@@ -46,19 +46,19 @@ for i in range(0, width, 2):
 
 # WRITE TRANSFER INSTRUCTIONS BASED ON REMAINDER OF (r,b,r2,f)
 
-iteration = r1 + b + r2 + f
+iteration = r1 + f + r2 + b
 # Create list of out iteration to check for remainders for patterning fold! 
 r1rem = []
 for i in range(0, r1):
     r1rem.append(i)
 frem = []
-for i in range(r1, r1+b):
+for i in range(r1, r1+f):
     frem.append(i)
 r2rem = []
-for i in range(r1+b, r1+b+r2):
+for i in range(r1+b, r1+f+r2):
     r2rem.append(i)
 brem = []
-for i in range(r1+b+r2, r1+b+r2+f):
+for i in range(r1+b+r2, r1+f+r2+b):
     brem.append(i)
 
 
