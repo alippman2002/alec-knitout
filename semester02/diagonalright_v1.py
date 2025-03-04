@@ -1,3 +1,5 @@
+#### FIRST DRAFT OF DIAGONAL PLEATING, REWORKED IN V2
+
 # Setup
 import sys
 sys.path.append("/Users/aleclippman/Desktop/Knit/additionalresources")

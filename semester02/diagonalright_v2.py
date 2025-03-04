@@ -33,7 +33,7 @@ width = (r1+b+r2+f) * 1
 iteration = r1 + b + r2 + f
 # Bed_Rules for appropriate transfers each pass (check Previous bed of stitch with shifted % iteration and if not equal, transfer!)
 bed_rules = {}
-# Create list of out iteration to check for remainders for patterning fold! 
+
 r1rem = []
 for i in range(0, r1):
     r1rem.append(i)
@@ -82,7 +82,6 @@ for i in range(0, width, 2):
     k.tuck('+', (bed,i), carrier)
 
 # WRITE TRANSFER INSTRUCTIONS BASED ON REMAINDER OF (r,b,r2,f)
-
 # FROM ORIGINAL CAST ON:
     # i%2=0 was cast onto F
     # i%2= 1 was cast onto B
@@ -106,40 +105,40 @@ for i in range(width - 1, -1, -1):
             k.xfer(('f',i), ('b',i))
             stitch_locations[i] = 'b'
 
+# Debug Help
 stitch_location = {}
 stitch_order = sorted(stitch_locations.keys())
 for key in stitch_order:
     stitch_location[key] = stitch_locations[key]
 
-print("Stitch Locations Inititally")
-print(stitch_location)
-
-print("bed_rules")
-print(bed_rules)
+# print("Stitch Locations Inititally")
+# print(stitch_location)
+# print("bed_rules")
+# print(bed_rules)
 
 # Knit
 for j in range(0, height):
-    print("J pass Number Below")
-    print(j)
+    # print("J pass Number Below")
+    # print(j)
     # - Pass
     if j%2 == 0:
-         print("- pass")
+        #  print("- pass")
          for i in range(width - 1, -1, -1):
-            print("i below (needle we at)")
-            print(i)
+            # print("i below (needle we at)")
+            # print(i)
             shifted = (i-j) % iteration
             if shifted in r1rem:
-                print(" r1 rib, knitting")
+                # print(" r1 rib, knitting")
                 # Knit 1x1 ribd
                 if bed_rules[shifted] != stitch_location[i]:  
-                    print("trasnfer occured")
+                    # print("trasnfer occured")
                     k.xfer((stitch_location[i], i), (bed_rules[shifted], i))
-                print("just knit on the following bed!")
-                print(bed_rules[shifted])
+                # print("just knit on the following bed!")
+                # print(bed_rules[shifted])
                 k.knit('-', (bed_rules[shifted],i), carrier)
                 stitch_location[i] = bed_rules[shifted]
             if shifted in frem:
-                print('front knitting')
+                # print('front knitting')
                 if stitch_location[i] != 'f':
                     k.xfer(('b', i), ('f', i))
                 # Knit F
@@ -147,45 +146,45 @@ for j in range(0, height):
                 stitch_location[i] = 'f'
             if shifted in r2rem:
                 # Knit 1x1 Rib
-                print(" r2 rib, knitting")
+                # print(" r2 rib, knitting")
                 if bed_rules[shifted] != stitch_location[i]:
-                    print("transfer occured")
+                    # print("transfer occured")
                     k.xfer((stitch_location[i], i), (bed_rules[shifted], i))
                 k.knit('-', (bed_rules[shifted],i), carrier)
-                print("just knit on the following bed!")
-                print(bed_rules[shifted])
+                # print("just knit on the following bed!")
+                # print(bed_rules[shifted])
                 stitch_location[i] = bed_rules[shifted]
             if shifted in brem:
                 # Knit B
-                print("back knitting")
+                # print("back knitting")
                 if stitch_location[i] != 'b':
-                    print("transfer occured")
+                    # print("transfer occured")
                     k.xfer(('f', i), ('b', i))
                 k.knit('-', ('b',i), carrier)
-                print("just knit on back bed!")
+                # print("just knit on back bed!")
                 stitch_location[i] = 'b'
-            print("Updated Stitch Locations")
-            print(stitch_location)
+            # print("Updated Stitch Locations")
+            # print(stitch_location)
     # + Pass
     ### I=2 needs to transfer f to b and knit b
     else:
-       print("+ Pass")
+    #    print("+ Pass")
        for i in range(0, width, 1):
-            print(f"i is here: {i}")
+            # print(f"i is here: {i}")
             shifted = (i-j) % iteration
-            print(f"shifted value is here: {shifted}")
+            # print(f"shifted value is here: {shifted}")
             if shifted in r1rem:
-                print(" r1 rib, knitting")
+                # print(" r1 rib, knitting")
                 # Knit 1x1 rib
                 if bed_rules[shifted] != stitch_location[i]:  
-                    print("trasnfer occured")
+                    # print("trasnfer occured")
                     k.xfer((stitch_location[i], i), (bed_rules[shifted], i))
-                print("just knit on the following bed!")
-                print(bed_rules[shifted])
+                # print("just knit on the following bed!")
+                # print(bed_rules[shifted])
                 k.knit('+', (bed_rules[shifted],i), carrier)
                 stitch_location[i] = bed_rules[shifted]
             if shifted in frem:
-                print('front knitting')
+                # print('front knitting')
                 if stitch_location[i] != 'f':
                     k.xfer(('b', i), ('f', i))
                 # Knit F
@@ -193,25 +192,25 @@ for j in range(0, height):
                 stitch_location[i] = 'f'
             if shifted in r2rem:
                 # Knit 1x1 Rib
-                print(" r2 rib, knitting")
+                # print(" r2 rib, knitting")
                 if bed_rules[shifted] != stitch_location[i]:
-                    print("transfer occured")
+                    # print("transfer occured")
                     k.xfer((stitch_location[i], i), (bed_rules[shifted], i))
                 k.knit('+', (bed_rules[shifted],i), carrier)
-                print("just knit on the following bed!")
-                print(bed_rules[shifted])
+                # print("just knit on the following bed!")
+                # print(bed_rules[shifted])
                 stitch_location[i] = bed_rules[shifted]
             if shifted in brem:
                 # Knit B
-                print("back knitting")
+                # print("back knitting")
                 if stitch_location[i] != 'b':
-                    print("transfer occured")
+                    # print("transfer occured")
                     k.xfer(('f', i), ('b', i))
                 k.knit('+', ('b',i), carrier)
-                print("just knit on back bed!")
+                # print("just knit on back bed!")
                 stitch_location[i] = 'b'
-            print("Updated Stitch Locations")
-            print(stitch_location)
+            # print("Updated Stitch Locations")
+            # print(stitch_location)
 
 k.outhook(carrier)
 for i in range(0, width):
