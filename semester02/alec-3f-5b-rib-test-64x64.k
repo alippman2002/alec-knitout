@@ -34,7 +34,6 @@ tuck - b7 1
 tuck - b5 1
 tuck - b3 1
 tuck - b1 1
-releasehook 1
 tuck + f0 1
 tuck + f2 1
 tuck + f4 1
@@ -91,6 +90,70 @@ xfer b9 f9
 xfer f6 b6
 xfer f4 b4
 xfer b1 f1
+knit - b63 1
+knit - b62 1
+knit - b61 1
+knit - b60 1
+knit - b59 1
+knit - f58 1
+knit - f57 1
+knit - f56 1
+knit - b55 1
+knit - b54 1
+knit - b53 1
+knit - b52 1
+knit - b51 1
+knit - f50 1
+knit - f49 1
+knit - f48 1
+knit - b47 1
+knit - b46 1
+knit - b45 1
+knit - b44 1
+knit - b43 1
+knit - f42 1
+knit - f41 1
+knit - f40 1
+knit - b39 1
+knit - b38 1
+knit - b37 1
+knit - b36 1
+knit - b35 1
+knit - f34 1
+knit - f33 1
+knit - f32 1
+knit - b31 1
+knit - b30 1
+knit - b29 1
+knit - b28 1
+knit - b27 1
+knit - f26 1
+knit - f25 1
+knit - f24 1
+knit - b23 1
+knit - b22 1
+knit - b21 1
+knit - b20 1
+knit - b19 1
+knit - f18 1
+knit - f17 1
+knit - f16 1
+knit - b15 1
+knit - b14 1
+knit - b13 1
+knit - b12 1
+knit - b11 1
+knit - f10 1
+knit - f9 1
+knit - f8 1
+knit - b7 1
+knit - b6 1
+knit - b5 1
+knit - b4 1
+knit - b3 1
+knit - f2 1
+knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -218,6 +281,7 @@ knit - b4 1
 knit - b3 1
 knit - f2 1
 knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -345,6 +409,7 @@ knit - b4 1
 knit - b3 1
 knit - f2 1
 knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -472,6 +537,7 @@ knit - b4 1
 knit - b3 1
 knit - f2 1
 knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -599,6 +665,7 @@ knit - b4 1
 knit - b3 1
 knit - f2 1
 knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -726,6 +793,7 @@ knit - b4 1
 knit - b3 1
 knit - f2 1
 knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -853,6 +921,7 @@ knit - b4 1
 knit - b3 1
 knit - f2 1
 knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -980,6 +1049,7 @@ knit - b4 1
 knit - b3 1
 knit - f2 1
 knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -1107,6 +1177,7 @@ knit - b4 1
 knit - b3 1
 knit - f2 1
 knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -1234,6 +1305,7 @@ knit - b4 1
 knit - b3 1
 knit - f2 1
 knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -1361,6 +1433,7 @@ knit - b4 1
 knit - b3 1
 knit - f2 1
 knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -1488,6 +1561,7 @@ knit - b4 1
 knit - b3 1
 knit - f2 1
 knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -1615,6 +1689,7 @@ knit - b4 1
 knit - b3 1
 knit - f2 1
 knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -1742,6 +1817,7 @@ knit - b4 1
 knit - b3 1
 knit - f2 1
 knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -1869,6 +1945,7 @@ knit - b4 1
 knit - b3 1
 knit - f2 1
 knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -1996,6 +2073,7 @@ knit - b4 1
 knit - b3 1
 knit - f2 1
 knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -2123,6 +2201,7 @@ knit - b4 1
 knit - b3 1
 knit - f2 1
 knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -2250,6 +2329,7 @@ knit - b4 1
 knit - b3 1
 knit - f2 1
 knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -2377,6 +2457,7 @@ knit - b4 1
 knit - b3 1
 knit - f2 1
 knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -2504,6 +2585,7 @@ knit - b4 1
 knit - b3 1
 knit - f2 1
 knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -2631,6 +2713,7 @@ knit - b4 1
 knit - b3 1
 knit - f2 1
 knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -2758,6 +2841,7 @@ knit - b4 1
 knit - b3 1
 knit - f2 1
 knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -2885,6 +2969,7 @@ knit - b4 1
 knit - b3 1
 knit - f2 1
 knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -3012,6 +3097,7 @@ knit - b4 1
 knit - b3 1
 knit - f2 1
 knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -3139,6 +3225,7 @@ knit - b4 1
 knit - b3 1
 knit - f2 1
 knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -3266,6 +3353,7 @@ knit - b4 1
 knit - b3 1
 knit - f2 1
 knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -3393,6 +3481,7 @@ knit - b4 1
 knit - b3 1
 knit - f2 1
 knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -3520,6 +3609,7 @@ knit - b4 1
 knit - b3 1
 knit - f2 1
 knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -3647,6 +3737,7 @@ knit - b4 1
 knit - b3 1
 knit - f2 1
 knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -3774,6 +3865,7 @@ knit - b4 1
 knit - b3 1
 knit - f2 1
 knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -3901,6 +3993,7 @@ knit - b4 1
 knit - b3 1
 knit - f2 1
 knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -4028,6 +4121,7 @@ knit - b4 1
 knit - b3 1
 knit - f2 1
 knit - f1 1
+knit - f0 1
 knit + f0 1
 knit + f1 1
 knit + f2 1
@@ -4092,70 +4186,8 @@ knit + b60 1
 knit + b61 1
 knit + b62 1
 knit + b63 1
-knit - b63 1
-knit - b62 1
-knit - b61 1
-knit - b60 1
-knit - b59 1
-knit - f58 1
-knit - f57 1
-knit - f56 1
-knit - b55 1
-knit - b54 1
-knit - b53 1
-knit - b52 1
-knit - b51 1
-knit - f50 1
-knit - f49 1
-knit - f48 1
-knit - b47 1
-knit - b46 1
-knit - b45 1
-knit - b44 1
-knit - b43 1
-knit - f42 1
-knit - f41 1
-knit - f40 1
-knit - b39 1
-knit - b38 1
-knit - b37 1
-knit - b36 1
-knit - b35 1
-knit - f34 1
-knit - f33 1
-knit - f32 1
-knit - b31 1
-knit - b30 1
-knit - b29 1
-knit - b28 1
-knit - b27 1
-knit - f26 1
-knit - f25 1
-knit - f24 1
-knit - b23 1
-knit - b22 1
-knit - b21 1
-knit - b20 1
-knit - b19 1
-knit - f18 1
-knit - f17 1
-knit - f16 1
-knit - b15 1
-knit - b14 1
-knit - b13 1
-knit - b12 1
-knit - b11 1
-knit - f10 1
-knit - f9 1
-knit - f8 1
-knit - b7 1
-knit - b6 1
-knit - b5 1
-knit - b4 1
-knit - b3 1
-knit - f2 1
-knit - f1 1
 outhook 1
+releasehook 1
 drop f0
 drop b0
 drop f1

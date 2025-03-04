@@ -5,25 +5,25 @@ sys.path.append('/Users/aleclippman/Desktop/Knit/knitout-frontend-py')
 from hereadWrappers import *
 import knitout
 
-
-
 k = knitout.Writer('1 2 3 4 5 6')
+# Half-pitch
+k.rack(0.5)
 k.addHeader('Machine', 'swg')
 carrier = '1'
 
 k.inhook(carrier)
 
-# Let r1 be the amount of 1x1 rib for flat part of fold (first part)
-r1 = 4
-# Let b be the amount of needles knit on back bed (valley)
-b = 4
-# Let r2 be the amount of 1x1 rib for flat part of fold (second part)
-r2 = 12
-# Let f be the amount of needles knit on front bed (mountain)
-f = 6
+# RULES: r1 begin with F and EVEN (1x1 rib)
+r1 = 2
+# RULES: ODD (mountain)
+f = 3
+# RULES: r2 begin with B and EVEN (1x1 rib)
+r2 = 4
+#RULES: ODD (valley)
+b = 3
 
 # Let the width allow for 5 iterations of this pattern
-width = (r1+b+r2+f) * 5
+width =(r1+b+r2+f) * 1
 
 # Can be arbitrary
 height = 80
@@ -51,73 +51,84 @@ iteration = r1 + b + r2 + f
 r1rem = []
 for i in range(0, r1):
     r1rem.append(i)
-brem = []
+frem = []
 for i in range(r1, r1+b):
-    brem.append(i)
+    frem.append(i)
 r2rem = []
 for i in range(r1+b, r1+b+r2):
     r2rem.append(i)
-frem = []
+brem = []
 for i in range(r1+b+r2, r1+b+r2+f):
-    frem.append(i)
+    brem.append(i)
 
-# Transfer based on specifc patterns
-# Based on cast on, keep odd needles on b bed, even needles on f bed for 1x1 rib
-for i in range(width - 1, -1, -1):
+
+# FROM ORIGINAL CAST ON:
+    # i%2=0 was cast onto F
+    # i%2= 1 was cast onto B
+
+# Transfer based on specific portions of iteration!
+for i in range(0, width, 1):
     if i%iteration in r1rem:
         # No transfers needed as cast on sets up 1x1 rib
-        continue
-    if i%iteration in brem:
-        # Transfer to b bed if i%2 = 0
-        if not i%2:
-            k.xfer(('f',i), ('b',i))
-    if i%iteration in r2rem:
-        # No transfers needed as cast on sets up 1x1 rib
+        # Odd on B
+        # Even on F
         continue
     if i%iteration in frem:
-        # Transfer to f if i%2 = 1
+        # Transfer to f bed if i%2 = 1
         if i%2:
             k.xfer(('b',i), ('f',i))
+    if i%iteration in r2rem:
+        # No transfers needed as cast on sets up 1x1 rib
+        # Odd on B
+        # Even on F
+        continue
+    if i%iteration in brem:
+        # Transfer to b if i%2 = 0
+        if not i%2:
+            k.xfer(('f',i), ('b',i))
 
 # Knit
 for j in range(0, height):
-    if j%2 == 0:
+    # Changed from == to is not to fix logic, xfers go in - direction, but fiber must go - first, not +
+    if j%2 != 0:
         for i in range(0, width, 1):
             if i%iteration in r1rem:
                 # Knit 1x1 Rib
+                # Knit on back bed when true (odd)
                 if i%2:
-                    k.knit('+', ('f',i), carrier)
-                else:
                     k.knit('+', ('b',i), carrier)
+                # Knit on front bed when false (even)
+                else:
+                    k.knit('+', ('f',i), carrier)
             if i%iteration in frem:
                 # Knit F
                 k.knit('+', ('f',i), carrier)
             if i%iteration in r2rem:
                 # Knit 1x1 Rib
                 if i%2:
-                    k.knit('+', ('f',i), carrier)
-                else:
                     k.knit('+', ('b',i), carrier)
+                else:
+                    k.knit('+', ('f',i), carrier)
             if i%iteration in brem:
                 # Knit B
                 k.knit('+', ('b',i), carrier)
     else:
-        for i in range(width - 1, 0, -1):
+        for i in range(width - 1, -1, -1):
             if i%iteration in r1rem:
                 # Knit 1x1 Rib
                 if i%2:
-                    k.knit('-', ('f',i), carrier)
-                else:
                     k.knit('-', ('b',i), carrier)
+                else:
+                    k.knit('-', ('f',i), carrier)
             if i%iteration in frem:
                 # Knit F
                 k.knit('-', ('f',i), carrier)
             if i%iteration in r2rem:
                 # Knit 1x1 Rib
                 if i%2:
-                    k.knit('-', ('f',i), carrier)
-                else:
                     k.knit('-', ('b',i), carrier)
+                else:
+                    k.knit('-', ('f',i), carrier)
             if i%iteration in brem:
                 # Knit B
                 k.knit('-', ('b',i), carrier)
@@ -128,4 +139,4 @@ for i in range(0, width):
     # Since ribbing is on both beds, drop f and b!
     k.drop('f', i)
     k.drop('b', i)
-k.write('alec-variable-rib-test-r1-'+str(r1)+'-b-'+str(b)+'-r2-'+str(r2)+'-f-'+str(f)+'-dim:-'+str(width)+'x'+str(height)+'.k')
+k.write('alec-variable-rib-test-r1-'+str(r1)+'-f-'+str(b)+'-r2-'+str(r2)+'-b-'+str(f)+'-dim:-'+str(width)+'x'+str(height)+'.k')

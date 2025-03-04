@@ -57,24 +57,42 @@ A package is the directory containing modules
 Questions:
 
 - Max width and height for shima swatches?
+width of shima - 360 wide
 
 - why does the rib rectangle code cast on two passes of tucks (one on F other pass on B)
+        - talked about this, try thsi method on flat-bed, but also just try different cast-on methods 
+        - general cast-on method for all?
 
 -How is half/full pitch set
+RACK BY 0.5
 
 - is there a way to check what is currently on the bed?
+        - use a data structure 
 
- - Theoretically, if i have yarn on f10 and write xfer(+ or -, b10, f10) what happens
 
 # What is this for?
 k.releasehook(carrier)
 
 - What issues do you see in my 3x5 rib and variable rib, and how should I expand upon these ideas for next Thursday?
 
-# TO-DOs For Last Feb Meeting:
- - Change Meeting 2 to First Week of April (By thursday)
- - Apply to Research Funding (By thursday)
- - More Bertoldi Code (By thursday)
- - Fix presenation (By thursday)
- - Review paper Kausalya sent for reference, and Anya's lit review
- - New Lit Review Draft in Overleaf (By thursday)
+WEEK 2:
+- Expand upon variablerib to create a diagonal shift 
+                - use j to shift where i is classified for what knit pattern!
+                - create a var that can be incremeted but maybe based on modulo too (wider patterns by holding pattern for few stitches)
+
+Week 3: 
+
+TO-DOs: 
+- PLAN ALL OF THIS BY NEXT THURSDAY:
+
+- Fix issues in all 3 Python files so far, primarily with transfers from tucks and range excluding final stitch 
+- Ensure transfers are happening properly in diagonal code
+- Incorporate rack(0.5) for half pitch
+- Create standardization on 1x1 ribbing so that beginning and end of rib are on opposite sides of mountain/valley knit on F/B bed
+- Draw a lot of knit diagrams to show diagonal pattern trasnfer and figure out how to xfer accordingly to shift knit things for pattern correctly
+- CREATE TIMELINE for literature review 
+
+
+
+Notes:
+        - easier to debug just one iteration of the pattern

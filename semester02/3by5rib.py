@@ -5,8 +5,9 @@ sys.path.append('/Users/aleclippman/Desktop/Knit/knitout-frontend-py')
 from hereadWrappers import *
 import knitout
 
-
 k = knitout.Writer('1 2 3 4 5 6')
+# Half-pitch
+k.rack(0.5)
 
 # Add headers to file
 k.addHeader('Machine', 'swg')
@@ -31,10 +32,6 @@ for i in range(width - 1, 0, -2):
         bed = 'b'
     # This pass tucks along the back bed 
     k.tuck('-', (bed,i), carrier)
-
-
-k.releasehook(carrier)
-
 
 # Begin at 0 needle, stop before width (not tucking here)
 for i in range(0, width, 2):
@@ -62,8 +59,17 @@ for i in range(width - 1, -1, -1):
 
 # Then create knit instructions repeating them by height (j)
 for j in range(0, height):
-    # This must be + direction, since transfers when from width - 1 to 0
+    # This must be - direction, since transfers when from width - 1 to 0 does not move fiber, fiber stays at width - 1
     if j%2 == 0:
+        for i in range(width - 1, -1, -1):
+            if i%8 in {0, 1, 2}:
+                # Knit on front bed
+                k.knit('-', ('f',i), carrier)
+            else:
+                # Knit on back bed
+                k.knit('-', ('b',i), carrier)
+    # + direction
+    else:
         for i in range(0, width, 1):
             if i%8 in {0, 1, 2}:
                 # Knit on front bed
@@ -71,18 +77,11 @@ for j in range(0, height):
             else:
                 # Knit on back bed
                 k.knit('+', ('b',i), carrier)
-    # - direction
-    else:
-        for i in range(width - 1, 0, -1):
-            if i%8 in {0, 1, 2}:
-                # Knit on front bed
-                k.knit('-', ('f',i), carrier)
-            else:
-                # Knit on back bed
-                k.knit('-', ('b',i), carrier)
+        
 
-#Bring carrier out always
+#Bring carrier out always (clarify/differences)
 k.outhook(carrier)
+k.releasehook(carrier)
 
 # Drop final stitches!
 
