@@ -86,13 +86,81 @@ TO-DOs:
 - PLAN ALL OF THIS BY NEXT THURSDAY:
 
 - Fix issues in all 3 Python files so far, primarily with transfers from tucks and range excluding final stitch 
+        - DONE
 - Ensure transfers are happening properly in diagonal code
+        - DONE
 - Incorporate rack(0.5) for half pitch
+        - DONE
 - Create standardization on 1x1 ribbing so that beginning and end of rib are on opposite sides of mountain/valley knit on F/B bed
+        - ADDED RULES
 - Draw a lot of knit diagrams to show diagonal pattern trasnfer and figure out how to xfer accordingly to shift knit things for pattern correctly
+        - DONE
 - CREATE TIMELINE for literature review 
+        - IN PROCESS
 
+Notes:
+        - easier to debug just one iteration of the pattern!
+        - break j after 3 to track 3 passes 0,1,2
+
+Notes on additionaresourcs subdirectory files:
+        - Refreence castonbindoff.py file for:
+                - easy caston in future
+                - easy bindoff
+        - Ribbing.py files:
+                - different rib techniques
+                - rib2ribxfer sets up rib array 
+                - what is tile function --> repeats array, like what im doing with modulo...
+                -gabrielle.py -> short rowing/imgtoStitch
+                - origami.py -> good system example of knit system using pleats.py
+                        - what is -1 , 0, 1 in these arrays
+                        - use caston 
+                        - QUESTIONS: rolleradvance purpose?
+        - ORIGAMI.PY -> HIGH LEVEL WORKFLOW
+        - PLEATS.PY -> FOLD functions
+        - most functions are assuming cast on already
+                - 0 is both beds
+                - 1 is back bed
+                - -1 is front bed
+                - xfer pleats notes:
+                        - using array assigning values to beds
+                        - (0 -1) or (-1 - 1) -> transfer to B
+                        - (1-0) or (1--1) -> transfer to b
+- TILING WILL DEFINITELY BE AN IMPORTANT FUNCTION TO USE OR CONCEPT
+
+
+Tim Nelson Notes:
+        - Outline key functionality more of frontend
+        - Create mock-up in figma for end users -> DONE
+        - Research 
+
+Questions:
+        - Tile Width and Height ?
+
+Tomorrow meeting:
+        - review diagonal pleats and other files
+        - review frontend dev
+        - plan frontend development over next week (basic), then backend again after next Thursday
+        - talk through idea for backend!               
 
 
 Notes:
-        - easier to debug just one iteration of the pattern
+        - less frontend focused right now, just make some pixel patterns to integrate into software
+        - Racking option could be cool to include eventually
+        - for now just write half bed full needle rib (to do this): rack(0.5) FOR full-needle F0 B0 F1 B1 F2 B2......
+        - Make pixel patterns for what i want then figure out how to read them
+        - ONE DAY: 
+                - fix diagonal transfer pass issue.... and conceptually understand this code as basis for next code -> Fixed
+        - ONE DAY: 
+                - begin code for backend figure out how to input pixel drawings.... (maybe make 3)
+                - think about code inputs check reference files for things to include
+                - half rack
+        - ONE DAY:
+                - lit review update, plan presentation 2 -> ask for review of it
+
+
+
+Spring Break Plan:
+        - Presentation 2
+        - Backend dev
+        - Update Lit Review
+
