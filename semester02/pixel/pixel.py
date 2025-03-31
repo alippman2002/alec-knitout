@@ -17,14 +17,17 @@ k.inhook(carrier)
 # Black -> Flat
 # Red -> Valley
 
-#### DEBUG Png (1) then the rest!
-
 # Add Image File Name In
-# Piskel allows for creation of custom sized pixel images!
-img = Image.open("/Users/aleclippman/Desktop/Knit/alec-knitout/semester02/pixel/pixel_ref/ShiftedTransfers3x2.png")
+# PixilArt: https://www.pixilart.com/draw
+# Front
+# img = Image.open("/Users/aleclippman/Desktop/Knit/alec-knitout/semester02/pixel/pixel_ref/Front.png")
+img = Image.open("/Users/aleclippman/Desktop/Knit/alec-knitout/semester02/pixel/pixel_ref/Flat.png")
+# img = Image.open("/Users/aleclippman/Desktop/Knit/alec-knitout/semester02/pixel/pixel_ref/Back.png")
+# img = Image.open("/Users/aleclippman/Desktop/Knit/alec-knitout/semester02/pixel/pixel_ref/ShiftedTransfers3x2.png")
+# img = Image.open("/Users/aleclippman/Desktop/Knit/alec-knitout/semester02/pixel/pixel_ref/6by6_3flat_3mountain.png")
 # Customize for Swatch Size
-width_iterations = 2
-height_iterations = 2
+width_iterations = 1
+height_iterations = 1
 
 width, height = img.size
 print(f"Image width and height: {width, height}")
@@ -105,6 +108,8 @@ for j in range(knit_height):
             bed = 'f' if j % 2 == 0 else 'b'
             second_bed = 'b' if bed == 'f' else 'f'
             # print(f"Bed at {i}: {bed}, and Second_bed at {i}: {second_bed}")
+            # k.knit(direction, (second_bed, i), carrier)
+            # k.knit(direction, (bed, i), carrier)
             k.knit(direction, (bed, i), carrier)
             k.knit(direction, (second_bed, i), carrier)
             continue
@@ -113,9 +118,10 @@ for j in range(knit_height):
             bed = stitch_location.get(i)
             k.knit(direction, (bed, i), carrier)
     
+    half_pitch = True
+    transfer = False
     # Transfer Check to Prep for Next Row
     for i in transfer_range:
-        transfer = False
         print("Transfer Checking on Needle {i}")
         curr_stitch = full_pattern[j][i]
         print(f"Curr_stitch: {curr_stitch}")
@@ -130,28 +136,35 @@ for j in range(knit_height):
             # in knitting pass, tuck on f
             continue
         if curr_stitch == 'F' and next_stitch == 'M':
-            k.rack(0.0)
+            if half_pitch:
+                k.rack(0.0)
+            half_pitch = False
             k.xfer(('b',i), ('f', i))
             transfer = True
             stitch_location[i] = 'f'
         if curr_stitch == 'F' and next_stitch == 'V':
-            k.rack(0.0)
+            if half_pitch:
+                k.rack(0.0)
+            half_pitch = False
             k.xfer(('f',i), ('b', i))
-            transfer = True
             transfer = True
             stitch_location[i] = 'b'
         if curr_stitch == 'M' and next_stitch == 'V':
-            k.rack(0.0)
+            if half_pitch:
+                k.rack(0.0)
+            half_pitch = False
             k.xfer(('f', i), ('b', i))
             transfer = True
             stitch_location[i] = 'b'
         if curr_stitch == 'V' and next_stitch == 'M':
-            k.rack(0.0)
+            if half_pitch:
+                k.rack(0.0)
+            half_pitch = False
             k.xfer(('b', i), ('f', i))
             transfer = True
             stitch_location[i] = 'f'
-        if transfer:
-            k.rack(0.5)
+    if transfer:
+        k.rack(0.5)
 
 k.outhook(carrier)
 
@@ -161,5 +174,5 @@ for i in range(0, knit_width):
     k.drop('b', i)
 
 # Enter Output File Name
-file_name = 'shifttransferslarger'
+file_name = 'FlatTestChangedBEds'
 k.write(f'{file_name}.k')
