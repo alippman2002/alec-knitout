@@ -6,11 +6,19 @@ sys.path.append('/Users/aleclippman/Desktop/Knit/knitout-frontend-py')
 from hereadWrappers import *
 import knitout
 
-k = knitout.Writer('1 2 3 4 5 6')
-k.rack(0.5)
+k = knitout.Writer('1 2 3 4 5 6 7 8 9 10')
+k.rack(0.25)
 k.addHeader('Machine', 'swg')
+k.addHeader('Position', 'Center')
 carrier = '1'
-k.inhook(carrier)
+k.ingripper(carrier)
+
+### ADDED IN SPEED CONFIGURATION BASED ON MUIRAORI FOLD STRUCTURE
+# Using Shima, speed must be between 0-15
+# 100 in Kniterate -> 2.5 in Shima (round to 2 or 3?)
+xferspeed = 3
+# 400 in Kniterate -> 10 in Shima
+knitspeed = 10
 
 # Using Red, White, Black
 # White -> Mountain
@@ -21,13 +29,14 @@ k.inhook(carrier)
 # PixilArt: https://www.pixilart.com/draw
 # Front
 # img = Image.open("/Users/aleclippman/Desktop/Knit/alec-knitout/semester02/pixel/pixel_ref/Front.png")
-img = Image.open("/Users/aleclippman/Desktop/Knit/alec-knitout/semester02/pixel/pixel_ref/Flat.png")
+img = Image.open("/Users/aleclippman/Desktop/Knit/alec-knitout/semester02/pixel/pixel_ref/Diagonal/8x8Diagonal1.png")
+
 # img = Image.open("/Users/aleclippman/Desktop/Knit/alec-knitout/semester02/pixel/pixel_ref/Back.png")
 # img = Image.open("/Users/aleclippman/Desktop/Knit/alec-knitout/semester02/pixel/pixel_ref/ShiftedTransfers3x2.png")
 # img = Image.open("/Users/aleclippman/Desktop/Knit/alec-knitout/semester02/pixel/pixel_ref/6by6_3flat_3mountain.png")
 # Customize for Swatch Size
-width_iterations = 1
-height_iterations = 1
+width_iterations = 3
+height_iterations = 3
 
 width, height = img.size
 print(f"Image width and height: {width, height}")
@@ -65,6 +74,7 @@ for i in range(knit_width - 1, -1, -1):
 # def transfer_function:
 
 for j in range(knit_height):
+    k.speedNumber(knitspeed)
     # Setting Up Knit Command
     direction = '+' if j % 2 == 0 else '-'
     print(f"Direction at knitting row {j} is: {direction}")
@@ -77,6 +87,7 @@ for j in range(knit_height):
     print(f"Transfer Range: {transfer_range}")
     # Complete tucks in knit pass to set up for next rows
     for i in knitting_range:
+        
         curr_stitch = full_pattern[j][i]
         print(f"Knitting Needle {i} and curr_stitch: {curr_stitch}")
 
@@ -118,9 +129,12 @@ for j in range(knit_height):
             bed = stitch_location.get(i)
             k.knit(direction, (bed, i), carrier)
     
+
+
+    # Transfer Check to Prep for Next Row
+    k.speedNumber(xferspeed)
     half_pitch = True
     transfer = False
-    # Transfer Check to Prep for Next Row
     for i in transfer_range:
         print("Transfer Checking on Needle {i}")
         curr_stitch = full_pattern[j][i]
@@ -164,9 +178,9 @@ for j in range(knit_height):
             transfer = True
             stitch_location[i] = 'f'
     if transfer:
-        k.rack(0.5)
+        k.rack(0.25)
 
-k.outhook(carrier)
+k.outgripper(carrier)
 
 for i in range(0, knit_width):
     # Since ribbing is on both beds, drop f and b!
@@ -174,5 +188,5 @@ for i in range(0, knit_width):
     k.drop('b', i)
 
 # Enter Output File Name
-file_name = 'FlatTestChangedBEds'
+file_name = img.filename
 k.write(f'{file_name}.k')
