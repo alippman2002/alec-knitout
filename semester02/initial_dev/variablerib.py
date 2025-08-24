@@ -26,7 +26,7 @@ b = 3
 width =(r1+b+r2+f) * 1
 
 # Can be arbitrary
-height = 80
+height = 20
 
 for i in range(width - 1, 0, -2):
     bed = 'f'

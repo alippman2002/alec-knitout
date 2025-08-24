@@ -19,8 +19,8 @@ k.inhook(carrier)
 
 # Creating a width allowing for 8 iterations of rib (3 + 5) * 8
 # Should this technically be 63 (0,63 is 64?)
-width = 64
-height = 64
+width = 24
+height = 24
 
 # Cast-on
 

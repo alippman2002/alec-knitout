@@ -29,7 +29,7 @@ r2 = 4
 b = 3
 
 # Let the width allow for 5 iterations of this pattern
-width = (r1+b+r2+f) * 1
+width = (r1+b+r2+f) * 2
 
 iteration = r1 + b + r2 + f
 # Bed_Rules for appropriate transfers each pass (check Previous bed of stitch with shifted % iteration and if not equal, transfer!)
@@ -60,7 +60,7 @@ for i in range(r1+b+r2, r1+f+r2+f):
 
 
 # Can be arbitrary
-height = 80
+height = 30
 stitch_location = {}
 
 
@@ -97,7 +97,6 @@ for i in range(width):
 for j in range(0, height):
     direction = '-' if j % 2 == 0 else '+'
 
-    # ---- TRANSFER PASS ----
     needle_range = range(width - 1, -1, -1) if direction == '-' else range(width)
     for i in needle_range:
         zone = (i - j) % iteration
@@ -105,7 +104,6 @@ for j in range(0, height):
         if stitch_location[i] != target_bed:
             k.xfer((stitch_location[i], i), (target_bed, i))
             stitch_location[i] = target_bed
-    # ---- KNIT PASS ----
     for i in needle_range:
         k.knit(direction, (stitch_location[i], i), carrier)
 
