@@ -7,13 +7,13 @@ from hereadWrappers import *
 import knitout
 import castonbindoff
 
+# TODO- Configure based on 3D knitting machine
 k = knitout.Writer('1 2 3 4 5 6 7 8 9 10')
 k.rack(0.25)
 k.addHeader('Machine', 'SWG061N2')
 k.addHeader('Position', 'Center')
 carrier = '7'
 k.ingripper(carrier)
-
 xferspeed = 3
 knitspeed = 10
 stitch_size = 90
