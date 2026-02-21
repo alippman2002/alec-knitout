@@ -11,4 +11,4 @@ To use pixel.py, create a pixel input using white, red, and black:
 # Black -> Flat Section
 # Red -> Valley Fold
 
-Add your file name into pixel.py and a .k file will be written when the program is run.
+Add your pixel file's name into pixel.py and a .k file will be written when the program is run.
