@@ -3,7 +3,7 @@ Alec's knitout files for Bertoldi Group (Python and Knitout)
 
 Simple knit programs which generate a .k Knitout file are found in initial_dev folder.
 
-Pixel-based development for the square waterbomb tessellation fold are in the pixel folder. Pixel inputs used to debug and to create varying origami knits are found in pixel/pixel_ref. The .k files geneerated for each tessellation knit can also be referenced.
+Pixel-based development for the square waterbomb tessellation fold are in the pixel folder. Pixel inputs used to debug and to create varying origami knits are found in pixel/pixel_ref. The .k files generated for each tessellation knit can also be referenced.
 
 To use pixel.py, create a pixel input using white, red, and black:
 
